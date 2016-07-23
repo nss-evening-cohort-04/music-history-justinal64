@@ -18,7 +18,8 @@
                 </ul>
             </nav>
         </div>
-        <div class="sidebar dborder">
+        <div class="row">
+        <div class="sidebar dborder col-1">
             <span>Song Length:</span>
             <input type="range">
             <span>Artist:</span>
@@ -37,25 +38,51 @@
             </select>
             <span>Genre:</span>
             <form action="demo_form.asp" method="get">
-            <div class="spacing">
-                <input type="checkbox" name="genre" value="rock">Rock
-                <input type="checkbox" name="genre" value="pop">Pop
-            </div>
-            <div class="spacing">
-                <input type="checkbox" name="genre" value="blues">Blues
-                <input type="checkbox" name="genre" value="classical">Classical
-            </div>
-            <div class="spacing">
-                <input type="checkbox" name="genre" value="jazz">Jazz
-                <input type="checkbox" name="genre" value="hiphop">Hip Hop
+            <div class="checkbox_styling">
+                <div class="spacing-left">
+                    <div><input type="checkbox" name="genre" value="rock"><label>Rock</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Pop</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Blues</label></div>
+                </div>
+                <div class="spacing-right">
+                    <div><input type="checkbox" name="genre" value="rock"><label>Classical</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Jazz</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Hip Hop</label></div>
+                </div>
             </div>
             </form>
-            <input type="button" value="Filter">
-        </div>
-        <div class="song_name dborder">
-            <div>
-                <h2>Song Name</h2>
+            <div class="filter">
+                <center><input type="button" value="Filter"></center>
             </div>
+        </div>
+        <div class="song_name dborder col-2">
+            <div class="sg_layout">
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+            </div>
+        </div>
         </div>
     </div>
 </body>

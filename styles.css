@@ -14,6 +14,7 @@ nav {
 .content {
     width: 90%;
     margin: 0 auto;
+    font-weight: 400;
 }
 
 /*Styling for the navigation bar*/
@@ -23,11 +24,13 @@ nav {
     margin-bottom: .75em;
 }
 
-.navigation li:before {
+.navigation li:before,
+.sg_layout li:before {
     content: " | ";
 }
 
-.navigation li:first-child:before {
+.navigation li:first-child:before,
+.sg_layout li:first-child:before {
     content: none;
 }
 
@@ -38,31 +41,105 @@ li {
 /*Styling for the sidebar*/
 .sidebar {
     background-color: #4DD7FA;
-    width: 20%;
-    padding-left: .75em;
-    float: left;
+}
+
+.sidebar select,
+input[type="range"] {
+    width: 100%
 }
 
 .sidebar span {
     display:block;
+    margin: .75em 0 .75em 0;
+}
+
+.spacing-left {
+    float: left;
+    width: 49%;
+    margin-bottom: .5em
+}
+
+.spacing-right {
+    float: right;
+    width: 49%;
+    margin-bottom: .5em;
+}
+
+.spacing-left div,
+.spacing-right div {
+    margin-bottom: 1em;
 }
 
 form input {
     display: inline;
 }
 
-.spacing {
+.filter input {
+    width: 50%;
+    font-size: 1.5em;
 
 }
 
 /*Styling for the song name section*/
 .song_name {
-    width: 75%;
+    width: 77%;
     float: right;
     background-color: #FEFAC0;
 }
 
+.sg_layout {
+    color: #785616;
+    margin-left: 1em;
+}
 
+.sg_layout ul {
+    padding-left: 0px;
+    display: inline-block;
+}
 
+.sg_layout li {
+    margin-right: 1em;
+    margin-left: 1em;
+    color: black;
+}
 
+.sg_layout li:first-child {
+    margin-left: 0;
+}
+
+.sg_layout li:before {
+    content: " | ";
+    margin-right: 1em;
+}
+
+.sg_layout h2 {
+    margin-bottom: .25em;
+    margin-top: .25em;
+}
+
+/*Adjusting the space of the bottom 2 divs*/
+.row {
+  display: flex; /* equal height of the children */
+}
+
+.col-1 {
+  flex: 1; /* additionally, equal width */
+
+  padding: 1em;
+  border: solid;
+  margin-right: .75em;
+}
+
+.col-2 {
+  flex: 3; /* additionally, equal width */
+
+  padding: 1em;
+  border: solid;
+}
+
+/*Media query designed for iphone 6 in landscape mode*/
+@media (max-width: 600px) {
+  .facet_sidebar {
+    display: none;
+  }
 
