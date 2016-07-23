@@ -4,10 +4,59 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-
-
+    <div class="content">
+        <div class="navigation dborder">
+            <nav>
+                <ul>
+                    <li>View Music</li>
+                    <li><a href="add_music.html" title="">Add Music</a></li>
+                    <li><a href="profile.html" title="">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="sidebar dborder">
+            <span>Song Length:</span>
+            <input type="range">
+            <span>Artist:</span>
+            <select>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+            </select>
+            <span>Album:</span>
+            <select>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+            </select>
+            <span>Genre:</span>
+            <form action="demo_form.asp" method="get">
+            <div class="spacing">
+                <input type="checkbox" name="genre" value="rock">Rock
+                <input type="checkbox" name="genre" value="pop">Pop
+            </div>
+            <div class="spacing">
+                <input type="checkbox" name="genre" value="blues">Blues
+                <input type="checkbox" name="genre" value="classical">Classical
+            </div>
+            <div class="spacing">
+                <input type="checkbox" name="genre" value="jazz">Jazz
+                <input type="checkbox" name="genre" value="hiphop">Hip Hop
+            </div>
+            </form>
+            <input type="button" value="Filter">
+        </div>
+        <div class="song_name dborder">
+            <div>
+                <h2>Song Name</h2>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

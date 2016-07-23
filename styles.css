@@ -1,0 +1,68 @@
+body {
+
+}
+
+nav {
+
+}
+
+.dborder {
+    border: 2px solid black;
+}
+
+/*Styling for the content section of the page*/
+.content {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/*Styling for the navigation bar*/
+.navigation {
+    width: 100%;
+    background-color: #FFB4B0;
+    margin-bottom: .75em;
+}
+
+.navigation li:before {
+    content: " | ";
+}
+
+.navigation li:first-child:before {
+    content: none;
+}
+
+li {
+    display: inline;
+}
+
+/*Styling for the sidebar*/
+.sidebar {
+    background-color: #4DD7FA;
+    width: 20%;
+    padding-left: .75em;
+    float: left;
+}
+
+.sidebar span {
+    display:block;
+}
+
+form input {
+    display: inline;
+}
+
+.spacing {
+
+}
+
+/*Styling for the song name section*/
+.song_name {
+    width: 75%;
+    float: right;
+    background-color: #FEFAC0;
+}
+
+
+
+
+
