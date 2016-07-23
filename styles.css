@@ -138,8 +138,14 @@ form input {
 }
 
 /*Media query designed for iphone 6 in landscape mode*/
-@media (max-width: 600px) {
-  .facet_sidebar {
-    display: none;
-  }
+/* iPhone Landscape */
+@media only screen
+  and (min-device-width: 522px)
+  and (max-device-width: 980px)
+  and (orientation: landscape) {
+    body {
+        background-color: pink;
+    }
+
+}
 
