@@ -4,10 +4,86 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-
-
+    <div class="content">
+        <div class="navigation dborder">
+            <nav>
+                <ul>
+                    <li>View Music</li>
+                    <li><a href="add_music.html" title="">Add Music</a></li>
+                    <li><a href="profile.html" title="">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="row">
+        <div class="sidebar dborder col-1">
+            <span>Song Length:</span>
+            <input type="range">
+            <span>Artist:</span>
+            <select>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+            </select>
+            <span>Album:</span>
+            <select>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+                <option value="options">options</option>
+            </select>
+            <span>Genre:</span>
+            <form action="demo_form.asp" method="get">
+            <div class="checkbox_styling">
+                <div class="spacing-left">
+                    <div><input type="checkbox" name="genre" value="rock"><label>Rock</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Pop</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Blues</label></div>
+                </div>
+                <div class="spacing-right">
+                    <div><input type="checkbox" name="genre" value="rock"><label>Classical</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Jazz</label></div>
+                    <div><input type="checkbox" name="genre" value="rock"><label>Hip Hop</label></div>
+                </div>
+            </div>
+            </form>
+            <div class="filter">
+                <center><input type="button" value="Filter"></center>
+            </div>
+        </div>
+        <div class="song_name dborder col-2">
+            <div class="sg_layout">
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+                <h2>Song Name</h2>
+                    <ul>
+                        <li>Artist Name</li>
+                        <li>Album Name</li>
+                        <li>Genre</li>
+                    </ul>
+            </div>
+        </div>
+        </div>
+    </div>
 </body>
 </html>
