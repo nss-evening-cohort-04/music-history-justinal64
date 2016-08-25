@@ -119,18 +119,18 @@ form input {
 
 /*Adjusting the space of the bottom 2 divs*/
 .row {
-  display: flex; /* equal height of the children */
+  display: flex;
 }
 
 .col-1 {
-  flex: 1; /* additionally, equal width */
+  flex: 1;
   padding: 1em;
   border: solid;
   margin-right: .75em;
 }
 
 .col-2 {
-  flex: 3; /* additionally, equal width */
+  flex: 3;
   padding: 1em;
   border: solid;
 }
@@ -169,9 +169,4 @@ form input {
     width: 40%
 }
 
-/*Media query designed for iphone 6 in landscape mode*/
-@media (max-width: 600px) {
-  .facet_sidebar {
-    display: none;
-  }
 
