@@ -124,7 +124,6 @@ form input {
 
 .col-1 {
   flex: 1; /* additionally, equal width */
-
   padding: 1em;
   border: solid;
   margin-right: .75em;
@@ -132,9 +131,42 @@ form input {
 
 .col-2 {
   flex: 3; /* additionally, equal width */
-
   padding: 1em;
   border: solid;
+}
+
+.col-3 {
+    flex: 3;
+    padding: 1em;
+}
+
+.addMusicView {
+    position: absolute;
+    width: 20%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    top: 4em;
+}
+
+.visHidden {
+    visibility: hidden;
+}
+
+.visVisible {
+    visibility: visible;
+}
+
+.addMusicPosition div {
+    margin: 1em;
+}
+
+.addMusicPosition input[type="textarea"] {
+    float: right;
+}
+
+.addMusicButton {
+    width: 40%
 }
 
 /*Media query designed for iphone 6 in landscape mode*/
