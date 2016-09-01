@@ -1,21 +1,26 @@
-var songs = [];
 var album = document.getElementById("album");
 
-songs[songs.length] = "Legs > by Z*ZTop on the album Eliminator";
-songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
+// Students must use JavaScript to create arrays, modify them (using only the following methods:
+// join, push, reverse, sort, concat and unshift), and output lists to the DOM.
+// Songs array
+var songs = ["Diamonds", "Let Love Win", "Transformed", "God Is On The Move", "Dear Younger Me", "Evidence", "Made New", "Tase The Feeling", "You Are I am", "I Can Only Image"];
+
+// Artist array
+var artist = ["Hawk Nelson", "Carrollton", "Shonlock", "7eventh Time Down", "MercyMe", "Citizen Way", "Lincoln Brewster", "Conrad Sewell", "Mariah Carey", "Kallie Leggett"];
+
+// Albums array
+var albums = ["muse Sick-N-Hour Mess Age", "B-Day", "Who Will Cut Our Hair When We're Gone?", "Miss E...", "Big Willie Style", "Chocolate Factory",
+ "The Spaghetti Incident", "Me, I Am Mariah", "Kisses On The Bottom", "Allow Us To Be Frank"];
 
 // Clear the id album
 album.innerHTML = "";
 
 // 1. Each student must add one song to the beginning and the end of the array.
 // add to last position of the array
-songs.push("The Logical Song > by Justin Leggett on the album Breakfast in Murfreesboro");
+// songs.push("The Logical Song > by Justin Leggett on the album Breakfast in Murfreesboro");
 
 // add to the front of the array
-songs.unshift("The Logical Song > by Katie Leggett on the album Breakfast in Murfreesboro");
+// songs.unshift("The Logical Song > by Katie Leggett on the album Breakfast in Murfreesboro");
 
 // 2. Loop over the array and remove any words or characters that obviously don't belong.
 for(var i = 0; i < songs.length; i++) {
@@ -24,17 +29,17 @@ for(var i = 0; i < songs.length; i++) {
 // 3. Students must find and replace the > character in each item with a - character.
     songs[i] = songs[i].replace(/>/g,"-");
 
-    displaySong(songs[i]);
+    displaySong(album, songs[i] + " - by " + artist[i] + " on the album " + albums[i] );
 }
 
-function displaySong(song) {
+function displaySong(outputField, song) {
     var styledSong = '<h3>' + song + '</h3>';
-    album.innerHTML += styledSong;
+    outputField.innerHTML += styledSong;
 }
 
 function addSongToArrayandDisplay(songName, artistName, albumName) {
     songs.push(songName + " - by " + artistName + " on the album " + albumName);
-    displaySong(songName + " - by " + artistName + " on the album " + albumName);
+    displaySong(album, songName + " - by " + artistName + " on the album " + albumName);
 }
 
 function clearInputFields(songNameInput, artistName, albumName) {
