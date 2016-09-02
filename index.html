@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
 <body>
@@ -82,6 +82,7 @@
                             <li>Genre</li>
                         </ul>
                 </div>
+                <input type="button" id="more" value="More...">
             </div>
         </div>
         <!-- Appears when you click "Add Music" -->
@@ -92,9 +93,17 @@
                 <div><span>Album:<input type="textarea" id="albumName"></span></div>
                 <center><input type="button" class="addMusicButton" id="addSongButton" value="Add"></center>
             </div>
+            <div>
+                <h2>Songs Output</h2>
+                <div class="songsOutput"></div>
+                <h2>Artist Output</h2>
+                <div class="artistOutput"></div>
+                <h2>Album Output</h2>
+                <div class="albumOutput"></div>
+            </div>
         </div>
     </div>
-    <script src="songs.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/songs.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
 

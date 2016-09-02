@@ -1,0 +1,29 @@
+{
+    "songs": [
+    {
+        "title": "The Walk",
+        "artist": "Mayer Hawthorne",
+        "album": "How Do You Do today"
+    },
+    {
+        "title": "Flurry",
+        "artist": "PhonX",
+        "album": "Guitar Droppings under the sun"
+    },
+    {
+        "title": "Never Gonna Give You Up",
+        "artist": "Rick Astley",
+        "album": "Whenever You Need Somebody"
+    },
+    {
+        "title": "Flurry",
+        "artist": "PhonX",
+        "album": "Guitar Droppings"
+    },
+    {
+        "title": "Flurry",
+        "artist": "PhonX",
+        "album": "Guitar Droppings"
+    }
+  ]
+}
