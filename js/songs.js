@@ -7,8 +7,7 @@ var counter = 0;
 album.innerHTML = "";
 
 function displaySong(outputField, song) {
-    var styledSong = '<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>';
-    outputField.innerHTML += styledSong;
+    outputField.innerHTML += '<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>';
 }
 
 function addSongToArrayandDisplay(songName, artistName, albumName) {
@@ -99,15 +98,3 @@ songs1Request.addEventListener("load", onLoad);
 songs1Request.addEventListener("error", onError)
 songs1Request.open("GET", "json/songs1.json")
 songs1Request.send();
-
-
-
-
-
-
-
-
-
-
-
-
