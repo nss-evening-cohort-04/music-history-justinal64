@@ -1,31 +1,10 @@
 var album = document.getElementById("album");
 var songs = {};
 var songs1 = {};
-
-// Students must use JavaScript to create arrays, modify them (using only the following methods:
-// join, push, reverse, sort, concat and unshift), and output lists to the DOM.
-// Songs array
-// var songs = ["Diamonds", "Let Love Win", "Transformed", "God Is On The Move", "Dear Younger Me", "Evidence", "Made New", "Tase The Feeling", "You Are I am", "I Can Only Image"];
-
-// // Artist array
-// var artist = ["Hawk Nelson", "Carrollton", "Shonlock", "7eventh Time Down", "MercyMe", "Citizen Way", "Lincoln Brewster", "Conrad Sewell", "Mariah Carey", "Kallie Leggett"];
-
-// // Albums array
-// var albums = ["muse Sick-N-Hour Mess Age", "B-Day", "Who Will Cut Our Hair When We're Gone?", "Miss E...", "Big Willie Style", "Chocolate Factory",
-//  "The Spaghetti Incident", "Me, I Am Mariah", "Kisses On The Bottom", "Allow Us To Be Frank"];
+var counter = 0;
 
 // Clear the id album
 album.innerHTML = "";
-
-// // 2. Loop over the array and remove any words or characters that obviously don't belong.
-// for(var i = 0; i < songs.length; i++) {
-//     songs[i] = songs[i].replace(/[* @ ( ) !]/g," ");
-
-// // 3. Students must find and replace the > character in each item with a - character.
-//     songs[i] = songs[i].replace(/>/g,"-");
-
-//     displaySong(album, songs[i] + " - by " + artist[i] + " on the album " + albums[i] );
-// }
 
 function displaySong(outputField, song) {
     var styledSong = '<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>';
@@ -33,7 +12,6 @@ function displaySong(outputField, song) {
 }
 
 function addSongToArrayandDisplay(songName, artistName, albumName) {
-    // songs.push(songName + " - by " + artistName + " on the album " + albumName);
     displaySong(album, songName + " - by " + artistName + " on the album " + albumName);
 }
 
@@ -78,38 +56,30 @@ document.getElementById("addMusic").addEventListener("click", showHidden)
 document.getElementById("addSongButton").addEventListener("click", showHidden)
 
 // When "Delete" button is clicked remove element from the dom
-document.getElementById("album").addEventListener("click", function(e) { //.getElementsByTagName("input")
-    e.target.parentNode.remove();
+document.getElementById("album").addEventListener("click", function(e) {
+    if(e.target.className === "delete") {
+        e.target.parentNode.remove();
+    }
 })
 
-// var x = document.getElementById("album").getElementsByTagName("input");
-// console.log("x.length = ", x.length);
-// console.log("x = ", x);
-// document.getElementsByClassName("delete").forEach(function() {
-//     console.log("test");
-// });
-// console.log(all.length);
-// for(var i = 0; i < all.length; i++)
-// {
-//     alert(all[i].innerHTML);
-// }
 // When "More" is clicked add additional songs
 document.getElementById("more").addEventListener("click", function() {
-    // console.log(songs1);
     formatSongs(songs1);
 })
 
 function onLoad() {
-    songs = JSON.parse(this.responseText);
-    formatSongs(songs);
-}
-
-function onLoadOne() {
-    songs1 = JSON.parse(this.responseText);
+    // First time through songs is populated 2nd time through songs1 is populated
+    if(counter === 1 ) {
+        songs1 = JSON.parse(this.responseText);
+    } else {
+        songs = JSON.parse(this.responseText);
+        formatSongs(songs);
+        counter++;
+    }
 }
 
 function onError() {
-  console.log("An error occurred while transferring");
+    console.log("An error occurred while transferring");
 }
 
 function formatSongs(songsArray) {
@@ -125,12 +95,10 @@ songsRequest.open("GET", "json/songs.json")
 songsRequest.send();
 
 var songs1Request = new XMLHttpRequest();
-// fix before submitting
-songs1Request.addEventListener("load", onLoadOne);
+songs1Request.addEventListener("load", onLoad);
 songs1Request.addEventListener("error", onError)
 songs1Request.open("GET", "json/songs1.json")
 songs1Request.send();
-
 
 
 
