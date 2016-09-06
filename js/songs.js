@@ -1,17 +1,17 @@
-var album = document.getElementById("album");
+var $album = $("#album");
 var songs = {};
 var songs1 = {};
 var counter = 0;
 
 // Clear the id album
-album.innerHTML = "";
+$album.html('');
 
 function displaySong(outputField, song) {
-    outputField.innerHTML += '<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>';
+    outputField.append('<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>');
 }
 
 function addSongToArrayandDisplay(songName, artistName, albumName) {
-    displaySong(album, songName + " - by " + artistName + " on the album " + albumName);
+    displaySong($album, songName + " - by " + artistName + " on the album " + albumName);
 }
 
 function clearInputFields(songNameInput, artistName, albumName) {
@@ -21,9 +21,9 @@ function clearInputFields(songNameInput, artistName, albumName) {
 }
 
 function postSong() {
-    var songNameInput = document.getElementById("songNameInput");
-    var artistName = document.getElementById("artistName");
-    var albumName = document.getElementById("albumName");
+    var songNameInput = $('#songNameInput')[0];
+    var artistName = $("#artistName")[0];
+    var albumName = $("#albumName")[0];
     addSongToArrayandDisplay(songNameInput.value, artistName.value, albumName.value);
     clearInputFields(songNameInput, artistName, albumName);
 }
@@ -31,9 +31,9 @@ function postSong() {
 
 function showHidden(event) {
     event.preventDefault();
-    var setVis = document.getElementById("setVisibility");
-    var songName = document.getElementById("songName");
-    var addMusicView = document.getElementById("addMusicView");
+    var setVis = $("#setVisibility")[0];
+    var songName = $("#songName")[0];
+    var addMusicView = $("#addMusicView")[0];
     // if visHidden is in className
     if(addMusicView.className.indexOf("visHidden") > -1) {
         setVis.classList.add("visHidden");
@@ -48,21 +48,21 @@ function showHidden(event) {
 }
 
 // When "Add Music" is clicked hide sidebar and song_name and make visible add_music_view
-document.getElementById("addMusic").addEventListener("click", showHidden)
+$("#addMusic")[0].addEventListener("click", showHidden)
 
 
 // When add is clicked add the song to the array of songs
-document.getElementById("addSongButton").addEventListener("click", showHidden)
+$("#addSongButton")[0].addEventListener("click", showHidden)
 
 // When "Delete" button is clicked remove element from the dom
-document.getElementById("album").addEventListener("click", function(e) {
+$("#album")[0].addEventListener("click", function(e) {
     if(e.target.className === "delete") {
         e.target.parentNode.remove();
     }
 })
 
 // When "More" is clicked add additional songs
-document.getElementById("more").addEventListener("click", function() {
+$("#more")[0].addEventListener("click", function() {
     formatSongs(songs1);
 })
 
@@ -83,7 +83,7 @@ function onError() {
 
 function formatSongs(songsArray) {
     for(var i = 0; i < songsArray.songs.length; i++) {
-        displaySong(album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
+        displaySong($album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
     }
 }
 
@@ -98,3 +98,4 @@ songs1Request.addEventListener("load", onLoad);
 songs1Request.addEventListener("error", onError)
 songs1Request.open("GET", "json/songs1.json")
 songs1Request.send();
+
