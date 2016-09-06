@@ -1,17 +1,17 @@
-var album = $("#album")[0];
+var $album = $("#album");
 var songs = {};
 var songs1 = {};
 var counter = 0;
 
 // Clear the id album
-album.innerHTML = "";
+$album.html('');
 
 function displaySong(outputField, song) {
-    outputField.innerHTML += '<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>';
+    outputField.append('<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>');
 }
 
 function addSongToArrayandDisplay(songName, artistName, albumName) {
-    displaySong(album, songName + " - by " + artistName + " on the album " + albumName);
+    displaySong($album, songName + " - by " + artistName + " on the album " + albumName);
 }
 
 function clearInputFields(songNameInput, artistName, albumName) {
@@ -83,7 +83,7 @@ function onError() {
 
 function formatSongs(songsArray) {
     for(var i = 0; i < songsArray.songs.length; i++) {
-        displaySong(album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
+        displaySong($album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
     }
 }
 
