@@ -15,9 +15,9 @@ function addSongToArrayandDisplay(songName, artistName, albumName) {
 }
 
 function clearInputFields(songNameInput, artistName, albumName) {
-    songNameInput.value = "";
-    artistName.value = "";
-    albumName.value = "";
+    songNameInput.val("");
+    artistName.val("");
+    albumName.val("");
 }
 
 function postSong() {
@@ -71,7 +71,6 @@ function onLoad() {
         songs1 = JSON.parse(this.responseText);
     } else {
         songs = JSON.parse(this.responseText);
-        formatSongs(songs);
         counter++;
     }
 }
@@ -86,36 +85,14 @@ function formatSongs(songsArray) {
     }
 }
 
-var songsRequest = new XMLHttpRequest();
-songsRequest.addEventListener("load", onLoad);
-songsRequest.addEventListener("error", onError)
-songsRequest.open("GET", "json/songs.json")
-songsRequest.send();
+$.ajax({
+    url: "json/songs.json"
+}).done(function (data) {songs = data; formatSongs(songs);});
 
-var songs1Request = new XMLHttpRequest();
-songs1Request.addEventListener("load", onLoad);
-songs1Request.addEventListener("error", onError)
-songs1Request.open("GET", "json/songs1.json")
-songs1Request.send();
-// $(document).ready(function() {
-// $.ajax({
-//         url: "json/songs.json",
-//         success: function(data) {
-//             console.log("songs array", data);
-//             songs.push(this);
-//         }
-//     });
 
-// $.ajax({
-//         url: "json/songs1.json",
-//         success: function(data) {
-//             console.log("songs1 array", data);
-//             songs1.push(this);
-//         }
-//     });
+$.ajax({
+    url: "json/songs1.json"
+}).done(function (data) {songs1 = data; });
 
-// console.log("songs array = ", songs);
-// console.log("songs1 array = ", songs1);
-// });
 
 
