@@ -1,6 +1,6 @@
 var $album = $("#album");
-var songs = {};
-var songs1 = {};
+var songs = [];
+var songs1 = [];
 var counter = 0;
 
 // Clear the id album
@@ -21,53 +21,52 @@ function clearInputFields(songNameInput, artistName, albumName) {
 }
 
 function postSong() {
-    var songNameInput = $('#songNameInput')[0];
-    var artistName = $("#artistName")[0];
-    var albumName = $("#albumName")[0];
-    addSongToArrayandDisplay(songNameInput.value, artistName.value, albumName.value);
-    clearInputFields(songNameInput, artistName, albumName);
+    var $songNameInput = $('#songNameInput');
+    var $artistName = $("#artistName");
+    var $albumName = $("#albumName");
+    addSongToArrayandDisplay($songNameInput.val(), $artistName.val(), $albumName.val());
+    clearInputFields($songNameInput, $artistName, $albumName);
 }
-
 
 function showHidden(event) {
     event.preventDefault();
-    var setVis = $("#setVisibility")[0];
-    var songName = $("#songName")[0];
-    var addMusicView = $("#addMusicView")[0];
+    var setVis = $("#setVisibility");
+    var songName = $("#songName");
+    var addMusicView = $("#addMusicView");
     // if visHidden is in className
-    if(addMusicView.className.indexOf("visHidden") > -1) {
-        setVis.classList.add("visHidden");
-        songName.classList.add("visHidden");
-        addMusicView.classList.remove("visHidden");
+    if(addMusicView.hasClass("visHidden")) {
+        setVis.addClass("visHidden");
+        songName.addClass("visHidden");
+        addMusicView.removeClass("visHidden");
     } else {
-        setVis.classList.remove("visHidden");
-        songName.classList.remove("visHidden");
-        addMusicView.classList.add("visHidden");
+        setVis.removeClass("visHidden");
+        songName.removeClass("visHidden");
+        addMusicView.addClass("visHidden");
         postSong();
     }
 }
 
 // When "Add Music" is clicked hide sidebar and song_name and make visible add_music_view
-$("#addMusic")[0].addEventListener("click", showHidden)
+$("#addMusic").click(showHidden);
 
 
 // When add is clicked add the song to the array of songs
-$("#addSongButton")[0].addEventListener("click", showHidden)
+$("#addSongButton").click(showHidden);
 
 // When "Delete" button is clicked remove element from the dom
-$("#album")[0].addEventListener("click", function(e) {
+$("#album").click(function(e) {
     if(e.target.className === "delete") {
         e.target.parentNode.remove();
     }
 })
 
 // When "More" is clicked add additional songs
-$("#more")[0].addEventListener("click", function() {
+$("#more").click(function() {
     formatSongs(songs1);
 })
 
 function onLoad() {
-    // First time through songs is populated 2nd time through songs1 is populated
+    // First time through songs is populated, 2nd time through songs1 is populated
     if(counter === 1 ) {
         songs1 = JSON.parse(this.responseText);
     } else {
@@ -98,4 +97,25 @@ songs1Request.addEventListener("load", onLoad);
 songs1Request.addEventListener("error", onError)
 songs1Request.open("GET", "json/songs1.json")
 songs1Request.send();
+// $(document).ready(function() {
+// $.ajax({
+//         url: "json/songs.json",
+//         success: function(data) {
+//             console.log("songs array", data);
+//             songs.push(this);
+//         }
+//     });
+
+// $.ajax({
+//         url: "json/songs1.json",
+//         success: function(data) {
+//             console.log("songs1 array", data);
+//             songs1.push(this);
+//         }
+//     });
+
+// console.log("songs array = ", songs);
+// console.log("songs1 array = ", songs1);
+// });
+
 
