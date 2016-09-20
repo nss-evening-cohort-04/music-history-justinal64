@@ -1,3 +1,4 @@
+"use strict";
 var $album = $("#album");
 var songs = [];
 var songs1 = [];
@@ -58,19 +59,19 @@ $("#album").click(function(e) {
     if(e.target.className === "delete") {
         e.target.parentNode.remove();
     }
-})
+});
 
 // When "More" is clicked add additional songs
 $("#more").click(function() {
     formatSongs(songs1);
-})
+});
 
-function onLoad() {
+function onLoad(event) {
     // First time through songs is populated, 2nd time through songs1 is populated
     if(counter === 1 ) {
-        songs1 = JSON.parse(this.responseText);
+        songs1 = JSON.parse(event.currentTarget.responseText);
     } else {
-        songs = JSON.parse(this.responseText);
+        songs = JSON.parse(event.currentTarget.responseText);
         counter++;
     }
 }
