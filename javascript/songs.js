@@ -66,16 +66,6 @@ $("#more").click(function() {
     formatSongs(songs1);
 });
 
-function onLoad(event) {
-    // First time through songs is populated, 2nd time through songs1 is populated
-    if(counter === 1 ) {
-        songs1 = JSON.parse(event.currentTarget.responseText);
-    } else {
-        songs = JSON.parse(event.currentTarget.responseText);
-        counter++;
-    }
-}
-
 function onError() {
     console.log("An error occurred while transferring");
 }
