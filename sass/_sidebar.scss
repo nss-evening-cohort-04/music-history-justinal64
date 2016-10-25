@@ -1,0 +1,44 @@
+@import 'extends';
+@import 'mixins';
+
+/*Styling for the sidebar*/
+
+.sidebar {
+    background-color: $lightblue;
+}
+
+.col-1 {
+  flex: 1;
+  padding: 1em;
+  border: solid;
+  margin-right: .75em;
+}
+
+.spacing-left div {
+    margin-bottom: 1em;
+}
+
+// Used to control the space between inputs in the sidebar
+.spacing-left {
+    @include spacing(left, 49%, .5em);
+}
+
+.spacing-right {
+    @include spacing(right, 49%, .5em);
+}
+
+.sidebar select,
+input[type="range"] {
+    width: 100%;
+}
+
+.sidebar span {
+    display: block;
+    @include margin(.75em, 0, .75em, 0);
+}
+
+// Styling for the filter button
+.filter input {
+  width: 50%;
+  font-size: 1.5em;
+}

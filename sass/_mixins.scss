@@ -1,0 +1,9 @@
+@mixin spacing($float, $width, $margin-bottom) {
+    float: $float;
+    width: $width;
+    margin-bottom: $margin-bottom;
+}
+
+@mixin margin($margin-top, $margin-right, $margin-bottom, $margin-left) {
+    margin: $margin-top $margin-right $margin-bottom $margin-left;
+}

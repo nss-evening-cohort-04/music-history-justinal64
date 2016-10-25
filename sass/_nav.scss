@@ -1,0 +1,20 @@
+/*Styling for the navigation bar*/
+.navigation {
+  width: 100%;
+  background-color: $rose;
+  margin-bottom: .75em;
+}
+
+li {
+    display: inline;
+}
+
+.navigation li:before,
+.sg_layout li:before {
+  content: " | ";
+}
+
+.navigation li:first-child:before,
+.sg_layout li:first-child:before {
+  content: none;
+}

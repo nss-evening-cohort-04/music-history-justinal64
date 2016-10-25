@@ -1,0 +1,22 @@
+@import 'mixins';
+
+// This is the main div where the music is displayed
+.col-2 {
+  flex: 3;
+  padding: 1em;
+  border: solid;
+}
+
+.sg_layout {
+  color: $dirtbrown;
+  margin-left: 1em;
+}
+
+.sg_layout ul {
+  padding-left: 0px;
+  display: inline-block;
+}
+
+.spacing-right div {
+    margin-bottom: 1em;
+}

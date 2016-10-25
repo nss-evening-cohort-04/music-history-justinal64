@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'sidebar';
+@import 'nav';
+@import 'addmusic';
+@import 'container';
+
+/*Styling for the entire body section of the page*/
+.content {
+    width: 90%;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/*Adjusting the space of the bottom 2 divs*/
+.row {
+  display: flex;
+}
+
+// Border around all 3 divs
+.dborder {
+    border: 2px solid $black;
+}

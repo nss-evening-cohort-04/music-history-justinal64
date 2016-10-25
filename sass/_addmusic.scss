@@ -1,0 +1,41 @@
+// Used in the hidden add music div
+form input {
+  display: inline;
+}
+
+
+/*Styling for the song name section*/
+.song_name {
+  width: 77%;
+  float: right;
+  background-color: $lightbrow;
+}
+
+.addMusicView {
+  position: absolute;
+  width: 20%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 4em;
+}
+
+.visHidden {
+  visibility: hidden;
+}
+
+.visVisible {
+  visibility: visible;
+}
+
+.addMusicPosition div {
+  margin: 1em;
+}
+
+.addMusicPosition input[type="textarea"] {
+  float: right;
+}
+
+.addMusicButton {
+  width: 40%;
+}

@@ -1,0 +1,114 @@
+/*Styling for the sidebar*/
+.sidebar {
+  background-color: #4DD7FA; }
+
+.col-1 {
+  flex: 1;
+  padding: 1em;
+  border: solid;
+  margin-right: .75em; }
+
+.spacing-left div {
+  margin-bottom: 1em; }
+
+.spacing-left {
+  float: left;
+  width: 49%;
+  margin-bottom: 0.5em; }
+
+.spacing-right {
+  float: right;
+  width: 49%;
+  margin-bottom: 0.5em; }
+
+.sidebar select,
+input[type="range"] {
+  width: 100%; }
+
+.sidebar span {
+  display: block;
+  margin: 0.75em 0 0.75em 0; }
+
+.filter input {
+  width: 50%;
+  font-size: 1.5em; }
+
+/*Styling for the navigation bar*/
+.navigation {
+  width: 100%;
+  background-color: #FFB4B0;
+  margin-bottom: .75em; }
+
+li {
+  display: inline; }
+
+.navigation li:before,
+.sg_layout li:before {
+  content: " | "; }
+
+.navigation li:first-child:before,
+.sg_layout li:first-child:before {
+  content: none; }
+
+form input {
+  display: inline; }
+
+/*Styling for the song name section*/
+.song_name {
+  width: 77%;
+  float: right;
+  background-color: #FEFAC0; }
+
+.addMusicView {
+  position: absolute;
+  width: 20%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  top: 4em; }
+
+.visHidden {
+  visibility: hidden; }
+
+.visVisible {
+  visibility: visible; }
+
+.addMusicPosition div {
+  margin: 1em; }
+
+.addMusicPosition input[type="textarea"] {
+  float: right; }
+
+.addMusicButton {
+  width: 40%; }
+
+.col-2 {
+  flex: 3;
+  padding: 1em;
+  border: solid; }
+
+.sg_layout {
+  color: #785616;
+  margin-left: 1em; }
+
+.sg_layout ul {
+  padding-left: 0px;
+  display: inline-block; }
+
+.spacing-right div {
+  margin-bottom: 1em; }
+
+/*Styling for the entire body section of the page*/
+.content {
+  width: 90%;
+  margin: 0 auto;
+  font-weight: 400; }
+
+/*Adjusting the space of the bottom 2 divs*/
+.row {
+  display: flex; }
+
+.dborder {
+  border: 2px solid black; }
+
+/*# sourceMappingURL=main.css.map */
