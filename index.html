@@ -4,11 +4,20 @@
 <head>
   <meta charset="utf-8">
   <title>Music History</title>
+  <link rel="stylesheet" type="text/css" href="/lib/node_modules/bootstrap3/dist/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
 <body>
-    <div class="content">
+    <div class="container col-xs-4 col-xs-offset-4" id="login-container">
+        <h1 class="form-signin-heading">Music History App</h1>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" value="a@a.com"required autofocus>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" value="123456"required>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" value="jal" required>
+        <button class="btn btn-lg btn-success col-xs-6" id="loginButton">Login</button>
+        <button class="btn btn-lg btn-primary col-xs-6" id="registerButton">Register</button>
+    </div>
+    <div class="content hidden">
         <div class="navigation dborder">
             <nav>
                 <ul>
@@ -79,8 +88,11 @@
             </div>
         </div>
     </div>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <script src="javascript/songs.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/lib/node_modules/bootstrap3/dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dist/app.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
 
