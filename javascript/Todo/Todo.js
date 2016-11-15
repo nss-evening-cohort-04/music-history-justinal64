@@ -4,7 +4,7 @@ function addTodo(apiKeys, newItem){
     return new Promise((resolve, reject) => {
         $.ajax({
             method:  'POST',
-            url:`${apiKeys.databaseURL}/items.json`,
+            url:`${apiKeys.databaseURL}/songs.json`,
             data: JSON.stringify(newItem),
             dataType: 'json'
           }).then((response) => {
@@ -47,7 +47,7 @@ function getTodos(apiKeys){
     return new Promise((resolve, reject) => {
         $.ajax({
             method:  'GET',
-            url:`${apiKeys.databaseURL}/items.json`
+            url:`${apiKeys.databaseURL}/songs.json`
         }).then((response) => {
             let items = [];
             Object.keys(response).forEach(function(key){

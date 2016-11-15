@@ -2,11 +2,39 @@
   "users": {
     "user0": {
       "email": "a@a.com",
-      "uid": "2EYt8yjSQJa3mAmuy2QEDazcEcB2"
+      "uid": "2EYt8yjSQJa3mAmuy2QEDazcEcB2",
+      "displayName": "Justin"
     },
     "user1": {
       "email": "d@d.com",
-      "uid": "2LTNu0oms5Z6OVIvoh7yFeu8RVp2"
+      "uid": "2LTNu0oms5Z6OVIvoh7yFeu8RVp2",
+      "displayName": "Katie"
     }
-  }
+  },
+    "songs": [{
+        "title": "The Walk",
+        "artist": "Mayer Hawthorne",
+        "album": "How Do You Do",
+        "uid": "2EYt8yjSQJa3mAmuy2QEDazcEcB2"
+    }, {
+        "title": "Flurry",
+        "artist": "PhonX",
+        "album": "Guitar Droppings",
+        "uid": "2EYt8yjSQJa3mAmuy2QEDazcEcB2"
+    }, {
+        "title": "Never Gonna Give You Up",
+        "artist": "Rick Astley",
+        "album": "Whenever You Need Somebody",
+        "uid": "2LTNu0oms5Z6OVIvoh7yFeu8RVp2"
+    }, {
+        "title": "Flurry",
+        "artist": "PhonX",
+        "album": "Guitar Droppings",
+        "uid": "2LTNu0oms5Z6OVIvoh7yFeu8RVp2"
+    }, {
+        "title": "Flurry",
+        "artist": "PhonX",
+        "album": "Guitar Droppings",
+        "uid": "2LTNu0oms5Z6OVIvoh7yFeu8RVp2"
+    }]
 }

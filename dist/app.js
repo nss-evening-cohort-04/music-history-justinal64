@@ -112,7 +112,7 @@ function addTodo(apiKeys, newItem){
     return new Promise((resolve, reject) => {
         $.ajax({
             method:  'POST',
-            url:`${apiKeys.databaseURL}/items.json`,
+            url:`${apiKeys.databaseURL}/songs.json`,
             data: JSON.stringify(newItem),
             dataType: 'json'
           }).then((response) => {
@@ -155,7 +155,7 @@ function getTodos(apiKeys){
     return new Promise((resolve, reject) => {
         $.ajax({
             method:  'GET',
-            url:`${apiKeys.databaseURL}/items.json`
+            url:`${apiKeys.databaseURL}/songs.json`
         }).then((response) => {
             let items = [];
             Object.keys(response).forEach(function(key){
@@ -185,19 +185,21 @@ let apiKeys = "";
 
 let Auth = require("./Auth/FirebaseAuth");
 let Credentials = require("./Credentials/Credentials");
-let AddToDb = require("./Todo/Todo");
+let Todos = require("./Todo/Todo");
 let User = require("./FBUser/User");
 
 console.log("Auth", Auth);
 console.log("Credentials", Credentials);
-console.log("AddToDb", AddToDb);
+console.log("Todos", Todos);
 console.log("user", User);
 
 // Clear the id album
 $album.html('');
 
-function displaySong(outputField, song) {
-    outputField.append('<h3>' + '<input type="button" class="delete" value="Delete"> ' + song + '</h3>');
+function displaySong(object) {
+    $.each(object, (index, value) => {
+        $album.append(`<div>${value.title} - by ${value.artist} on the album ${value.album}</div>`);
+    });
 }
 
 function addSongToArrayandDisplay(songName, artistName, albumName) {
@@ -259,14 +261,20 @@ $("#more").click(function() {
 $('#login-button').on("click", function() {
     let user = {
         "email": $('#inputEmail').val(),
-        "password": $('#inputPassword').val()
+        "password": $('#inputPassword').val(),
+        "displayName": $('#inputUserName').val()
     };
     Auth.loginUser(user).then(function(loginResponse) {
         console.log("loginResponse", loginResponse);
         uid = loginResponse.uid;
-        // createLogoutButton(); Need to work on userResponse
+        // createLogoutButton(); // Need to work on userResponse
         $('#login-container').addClass("hide");
         $('.content').removeClass("hidden");
+        }).then(() => {
+            Todos.getTodos(apiKeys).then((items) => {
+            console.log("songs", items);
+            displaySong(items);
+        });
     });
 });
 
@@ -278,6 +286,7 @@ $('#registerButton').on("click", function() {
         "password": $('#inputPassword').val()
     };
 
+    // Refactor???
     Auth.registerUser(user).then(function(registerResponse) {
         console.log("register response", registerResponse);
         let uid = registerResponse;
@@ -309,32 +318,38 @@ function createLogoutButton() {
     });
 }
 
-// Get firebase key
-$(document).ready(function(){
-    Credentials.credentials().then(function(keys){
-        apiKeys = keys;
-        firebase.initializeApp(apiKeys);
-    });
-});
-
-function onError() {
-    console.log("An error occurred while transferring");
-}
-
 function formatSongs(songsArray) {
     for(var i = 0; i < songsArray.songs.length; i++) {
         displaySong($album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
     }
 }
 
-$.ajax({
-    url: "json/songs.json"
-}).done(function (data) {songs = data; formatSongs(songs);});
+// Get firebase key
+$(document).ready(function(){
+    Credentials.credentials().then(function(keys){
+        apiKeys = keys;
+        firebase.initializeApp(apiKeys);
+    });
 
 
-$.ajax({
-    url: "json/songs1.json"
-}).done(function (data) {songs1 = data; });
+});
+
+function getSongs() {
+    Todos.getTodos(apiKeys).then((songs) => {
+        console.log("songs", songs);
+    });
+}
+
+
+
+// $.ajax({
+//     url: "json/songs.json"
+// }).done(function (data) {songs = data; formatSongs(songs);});
+
+
+// $.ajax({
+//     url: "json/songs1.json"
+// }).done(function (data) {songs1 = data; });
 
 
 
