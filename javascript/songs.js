@@ -5,6 +5,7 @@ var songs1 = [];
 var counter = 0;
 let uid = "";
 let apiKeys = "";
+let moreString = "";
 
 let Auth = require("./Auth/FirebaseAuth");
 let Credentials = require("./Credentials/Credentials");
@@ -21,7 +22,12 @@ $album.html('');
 
 function displaySong(object) {
     $.each(object, (index, value) => {
-        $album.append(`<div>${value.title} - by ${value.artist} on the album ${value.album}</div>`);
+        // store songs over 5 to a string that is appended when more is clicked
+        if(index >= 5) {
+            moreString += `<div>${value.title} - by ${value.artist} on the album ${value.album}</div>`;
+        } else {
+            $album.append(`<div>${value.title} - by ${value.artist} on the album ${value.album}</div>`);
+        }
     });
 }
 
@@ -77,7 +83,7 @@ $("#album").click(function(e) {
 
 // When "More" is clicked add additional songs
 $("#more").click(function() {
-    formatSongs(songs1);
+    $album.append(moreString);
 });
 
 // eventListeners for Login/Register Buttons
@@ -141,11 +147,11 @@ function createLogoutButton() {
     });
 }
 
-function formatSongs(songsArray) {
-    for(var i = 0; i < songsArray.songs.length; i++) {
-        displaySong($album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
-    }
-}
+// function formatSongs(songsArray) {
+//     for(var i = 0; i < songsArray.songs.length; i++) {
+//         displaySong($album, songsArray.songs[i].title + " - by " + songsArray.songs[i].artist + " on the album " + songsArray.songs[i].album);
+//     }
+// }
 
 // Get firebase key
 $(document).ready(function(){
@@ -153,8 +159,6 @@ $(document).ready(function(){
         apiKeys = keys;
         firebase.initializeApp(apiKeys);
     });
-
-
 });
 
 function getSongs() {
@@ -163,16 +167,6 @@ function getSongs() {
     });
 }
 
-
-
-// $.ajax({
-//     url: "json/songs.json"
-// }).done(function (data) {songs = data; formatSongs(songs);});
-
-
-// $.ajax({
-//     url: "json/songs1.json"
-// }).done(function (data) {songs1 = data; });
 
 
 
