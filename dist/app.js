@@ -259,8 +259,28 @@ $("#album").click(function(e) {
 });
 
 // When "More" is clicked add additional songs
-$("#more").click(function() {
+$("#more").click(function(e) {
+    console.log("e", e);
     $album.append(moreString);
+    // Disable button // Figure out how to disable the button
+    // $(e).prop('disabled', false);
+});
+
+$('#song-filter').on('click', () => {
+    let searchText = $('#filter-input').val().toLowerCase();
+    console.log("searchText", searchText);
+    Todos.getTodos(apiKeys).then((songs) => {
+        let array = $.map(songs, (value, key ) => {
+            if (value.album.toLowerCase().indexOf(searchText) >= 0 || value.artist.toLowerCase().indexOf(searchText) >= 0 || value.title.toLowerCase().indexOf(searchText) >= 0 ) {
+                return value;
+            }
+        });
+        // Clear the div
+        $($album).html("");
+        // load new array
+        displaySong(array);
+        $('#filter-input').val("");
+    });
 });
 
 // eventListeners for Login/Register Buttons
